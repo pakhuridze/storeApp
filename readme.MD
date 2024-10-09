@@ -5,10 +5,13 @@
 This is a simple E-Commerce API.
 Using Python, Django and MPTT
 for category tree structure.
+
 ### Features
 
 - product (json)
+- product can have many categories
 - category (json)
+- category have tree structure
 
 ## Installation
 
