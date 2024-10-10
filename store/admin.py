@@ -5,16 +5,16 @@ from .models import Category, Product, ProductCategory
 
 class CategoryAdmin(MPTTModelAdmin):
     mptt_level_indent = 30
+    list_display = ('name', 'parent', 'created_at')
 
-class ProductCategoryInline(admin.StackedInline):
+class ProductAdminInline(admin.StackedInline):
     model = ProductCategory
     extra = 1
 
-
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "created_at", "description")
-    inlines = [ProductCategoryInline]
+    list_display = ("name", "price", "description")
     readonly_fields = ("created_at", "updated_at")
+    inlines = [ProductAdminInline]
     fields = (
         "name",
         "description",
@@ -24,6 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
         "updated_at",
     )
 
+
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
-admin.site.register(ProductCategory)

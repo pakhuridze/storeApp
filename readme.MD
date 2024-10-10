@@ -21,8 +21,13 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Admin Panel
+- admin: saitama
+- password: admin
+
 ```
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
+
