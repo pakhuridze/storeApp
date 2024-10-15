@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products in {{ category.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="content box-shadow-animation">
+        <div class="category">
+            <h2>{{ category.name }}-ის პროდუქტები</h2>
+
+            <ul>
+                {% for product in page_obj %}
+                    <li>
+                        <a href="{% url 'product_view' product.id %}">{{ product.name }}</a>
+                        <p>რაოდენობა: {{ product.quantity }}</p>
+                        <p>ჯამური ღირებულება: {{ product.total_value }}</p>
+                    </li>
+                {% empty %}
+                    <li>No products available.</li>
+                {% endfor %}
+            </ul>
+
+            <div class="summary">
+                <p>ყველაზე ძვირი პროდუქტის ფასი: {{ most_expensive_product_price }}</p>
+                <p>ყველაზე იაფი პროდუქტის ფასი: {{ most_lowest_product_price }}</p>
+                <p>ფასების ჯამი: {{ sum_of_prices }}</p>
+            </div>
+
+            <!-- პაგინაცია -->
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; პირველი</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">წინა</a>
+                    {% endif %}
+
+                    <span class="current">
+                         {{ page_obj.number }} დან {{ page_obj.paginator.num_pages }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">შემდეგი</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">ბოლო </a>
+                    {% endif %}
+                </span>
+            </div>
+            <div class="footer">
+                <a href="{% url 'category_view' %}">კატეგორიები</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,27 +1,26 @@
 from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
-from .models import Category, Product, ProductCategory
+from .models import Category, Product
 
 
 class CategoryAdmin(MPTTModelAdmin):
     mptt_level_indent = 30
     list_display = ('name', 'parent', 'created_at')
 
-class ProductAdminInline(admin.StackedInline):
-    model = ProductCategory
-    extra = 1
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "description")
+    list_display = ("name", "price", "quantity", "total_value", "description")
     readonly_fields = ("created_at", "updated_at")
-    inlines = [ProductAdminInline]
+    filter_horizontal = ("categories",)
     fields = (
         "name",
         "description",
         "price",
         "image",
+        "quantity",
         "created_at",
         "updated_at",
+        "categories",
     )
 
 

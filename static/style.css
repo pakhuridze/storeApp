@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding: 10px 30px;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.category h2 {
+    color: aqua;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 5px 0;
+    padding: 0;
+    color: gray;
+    font-size: 16px;
+}
+
+.content {
+    background-color: white;
+    padding: 40px;
+    min-width: 350px;
+    max-width: 80%;
+    width: auto;
+    border-radius: 15px;
+}
+
+.box-shadow-animation {
+    border: aqua 2px solid;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+.box-shadow-animation:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.category h2 {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.category ul {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Css for pagination */
+.summary {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: aqua;
+    color: #333;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #00e6e6;
+}
+
+.current {
+    font-weight: bold;
+}
+
+/* Css for product view */
+
+.product-image {
+    max-width: 420px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

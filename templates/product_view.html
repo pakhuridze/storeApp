@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="content box-shadow-animation">
+    {% for product in products %}
+    <h1>სახელი {{ product.name }}</h1>
+    <p>აღწერა: {{ product.description }}</p>
+    <p>ფასი : {{ product.price }}</p>
+    <p>რაოდენობა: {{ product.quantity }}</p>
+    <p>ჯამური ღირებულება: {{ product.total_value }}</p>
+    {% if product.image %}
+        <img class="product-image" src="{{ product.image }}" alt="{{ product.name }}">
+    {% endif %}
+    {% endfor %}
+    <div class="footer">
+        <a href="javascript:history.back()">უკან</a>
+        <a href="{% url 'category_view' %}">კატეგორიები</a>
+    </div>
+</div>
+
+</body>
+</html>
