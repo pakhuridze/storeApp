@@ -18,6 +18,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'user.CustomUser'
 
 # Application definition
 
@@ -31,7 +32,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'store',
     'mptt',
-]
+    'user',
+    'order',
+ ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -117,9 +120,6 @@ STATICFILES_DIRS = [
 ]
 
 
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',  # Only looks at STATICFILES_DIRS
-]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 

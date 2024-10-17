@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ## Usage
 
 ### Admin Panel
-- admin: saitama
+- admin: pakhuridzet@gmail.com
 - password: admin
 
 ```
